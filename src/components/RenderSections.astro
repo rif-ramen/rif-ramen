@@ -1,0 +1,17 @@
+---
+import { getPageModuleComponents } from "../lib/core";
+
+const { sections } = Astro.props;
+const components = getPageModuleComponents();
+---
+
+<div>
+  {
+    sections.map((section) => {
+      const Component =
+        components[section._type] || components["moduleMissing"];
+
+      return <Component {...section} />;
+    })
+  }
+</div>

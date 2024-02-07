@@ -1,0 +1,15 @@
+---
+import { img } from "../../lib/sanity";
+const { node } = Astro.props;
+---
+
+<div class="container mx-auto site-grid my-20">
+  <div class="inner col-span-full lg:col-span-8 lg:col-start-5 relative">
+    <img
+      class="w-full block h-auto"
+      src={img(node).build.width(1920).quality(100).url()}
+      alt={node.caption || ""}
+    />
+    {node.caption && <p class="text-detail text-storm mt-3">{node.caption}</p>}
+  </div>
+</div>

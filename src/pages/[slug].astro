@@ -1,0 +1,28 @@
+---
+import groq from "groq";
+import { renderPageModuleFragments } from "../lib/core";
+import Layout from "../layouts/Layout.astro";
+import RenderSections from "../components/RenderSections.astro";
+
+const page = await Astro.locals.client.fetch(
+  groq`*[slug.current == $slug && _type == 'page'][0]{
+    title,
+    slug,
+    ogTitle,
+    ogDescription,
+    ogImage,
+    pageModules[] {
+        _type,
+        _key,
+        ${renderPageModuleFragments()}
+    }
+}`,
+  { slug: Astro.params.slug },
+);
+
+if (!page) return Astro.redirect("/", 404);
+---
+
+<Layout title={page.title} page={page}>
+  <RenderSections sections={page.pageModules || []} />
+</Layout>

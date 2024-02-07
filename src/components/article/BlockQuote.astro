@@ -1,0 +1,16 @@
+---
+const { node } = Astro.props;
+---
+
+<div class="container my-20">
+    <div class="icon">
+        <img src="/icons/quote.svg" alt="" />
+    </div>
+    <p class="text-[2rem] leading-normal font-serif mt-6">{node.body}</p>
+    <div class="info site-grid">
+        <div class="col-span-full lg:col-span-6 lg:col-start-7 mt-10">
+            <h5>{node.source}</h5>
+            {node.sourceInfo && <p class="opacity-50">{node.sourceInfo}</p>}
+        </div>
+    </div>
+</div>

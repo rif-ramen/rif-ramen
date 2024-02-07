@@ -1,0 +1,39 @@
+{
+  "name": "rif-ramen",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "sanity:init": "sanity init --bare --dataset-default"
+  },
+  "dependencies": {
+    "@astrojs/netlify": "^3.0.4",
+    "@astrojs/tailwind": "^5.0.0",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/vision": "^3.16.4",
+    "@studio-freight/lenis": "^1.0.14",
+    "@unseenco/taxi": "^1.5.1",
+    "astro": "^4.3.4",
+    "astro-portabletext": "^0.9.4",
+    "date-fns": "^2.30.0",
+    "detect-it": "^4.0.1",
+    "groq": "^3.15.1",
+    "gsap": "npm:@gsap/shockingly@^3.12.2",
+    "phosphor-react": "^1.4.1",
+    "sanity": "^3.28.0",
+    "sanity-plugin-iframe-pane": "^2.5.8",
+    "sanity-plugin-media": "^2.2.2",
+    "slugify": "^1.6.6",
+    "stimulus": "^3.2.1",
+    "stimulus-use": "^0.52.0",
+    "tailwindcss": "^3.3.3"
+  },
+  "devDependencies": {
+    "prettier-plugin-astro": "^0.12.0",
+    "sass": "^1.66.0"
+  }
+}

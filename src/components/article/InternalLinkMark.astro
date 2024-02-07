@@ -1,0 +1,9 @@
+---
+const { node } = Astro.props;
+---
+
+<a
+  class="line-link text-black"
+  href={"/" + node.markDef.reference?.slug?.current}
+  ><slot />
+</a>

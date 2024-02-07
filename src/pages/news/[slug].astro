@@ -1,0 +1,61 @@
+---
+import groq from "groq";
+import Layout from "../../layouts/Layout.astro";
+import ArticleRenderer from "../../components/ArticleRenderer.astro";
+import ArticleHeader from "../../components/ArticleHeader.astro";
+import ArticleGrid from "../../components/ArticleGrid.astro";
+const article = await Astro.locals.client.fetch(
+  groq`*[_type == 'article' && slug.current == $slug][0]{
+    title,
+    slug,
+    subtitle,
+    publishedAt,
+    coverImage,
+    ogTitle,
+    ogDescription,
+    ogImage,
+    content[] {
+        ...,
+        markDefs[] {
+            ...,
+            _type == 'internalLink' => {
+                reference-> { slug }
+            }
+        }
+     },
+     "relatedArticles": *[_type == 'article' || _type == 'press' && publishedAt < now() && (!defined(isHidden) || !isHidden)][0..3]| order(publishedAt desc) {
+        _type,
+        title,
+        slug,
+        slug,
+        url,
+        subtitle,
+        publishedAt,
+        coverImage
+     }
+}`,
+  { slug: `news/${Astro.params.slug}` },
+);
+
+if (!article) return Astro.redirect("/", 404);
+
+const relatedArticles = article.relatedArticles.filter(
+  (related) => related.slug?.current != article.slug.current,
+);
+---
+
+<Layout title={article.title} page={article}>
+  <ArticleHeader
+    title={article.title}
+    publishedAt={article.publishedAt}
+    image={article.coverImage}
+  />
+
+  <div class="content mt-12">
+    <ArticleRenderer content={article.content} />
+  </div>
+  <div class="related-news mt-48">
+    <h2 class="type-subheading container mx-auto mb-16">Related News</h2>
+    <ArticleGrid articles={relatedArticles} />
+  </div>
+</Layout>

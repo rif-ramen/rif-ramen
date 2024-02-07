@@ -1,0 +1,23 @@
+<div id="app">Loading...</div>
+
+<style is:global>
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  /* This assumes no margin or padding on #app's parent(s) */
+  #app {
+    height: 100vh;
+    max-height: 100dvh;
+    overscroll-behavior: none;
+    -webkit-font-smoothing: antialiased;
+    overflow: auto;
+  }
+</style>
+
+<script>
+  import sanityConfig from "../../studio/config";
+
+  sanityConfig("#app");
+</script>

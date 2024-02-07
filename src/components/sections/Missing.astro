@@ -1,0 +1,5 @@
+---
+const { _type, ...data } = Astro.props;
+---
+
+<section data-name={_type} data-data={JSON.stringify(data)}></section>

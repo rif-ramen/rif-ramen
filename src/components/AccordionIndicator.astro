@@ -1,0 +1,42 @@
+<div
+  class="indicator h-5 w-5 bg-overcast hover:bg-energy transition-all duration-300 cursor-pointer group-hover:bg-energy"
+  data-accordion-target="indicator"
+>
+  <svg
+    class="w-full h-full"
+    viewBox="0 0 20 20"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <mask
+      id="mask0_1164_245"
+      style="mask-type:alpha"
+      maskUnits="userSpaceOnUse"
+      x="0"
+      y="0"
+      width="20"
+      height="20"
+    >
+      <rect width="20" height="20" fill="#D9D9D9"></rect>
+    </mask>
+    <g mask="url(#mask0_1164_245)">
+      <path
+        class="plus-horizontal"
+        d="M5 10.75H9.25H10.75H15V9.25H10.75H9.25H5V10.75Z"
+        fill="white"></path>
+      <path
+        class="plus-vertical"
+        d="M10.75 15L10.75 10.75L10.75 9.25L10.75 5L9.25 5L9.25 9.25L9.25 10.75L9.25 15L10.75 15Z"
+        fill="white"></path>
+    </g>
+  </svg>
+</div>
+
+<style lang="postcss">
+  .indicator.active {
+    @apply bg-energy;
+    .plus-vertical {
+      @apply opacity-0;
+    }
+  }
+</style>

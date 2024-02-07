@@ -1,0 +1,27 @@
+---
+import PageHeader from "../PageHeader.astro";
+import { img } from "./../../lib/sanity";
+export const fragment = `
+    title,
+    image
+`;
+
+const { title, image } = Astro.props;
+---
+
+<section data-controller="stagger-entrance">
+  <PageHeader title={title} />
+  {
+    image && (
+      <div class="container">
+        <div class="bg-cloud aspect-[3/4] lg:aspect-[4/3]">
+          <img
+            class="aspect-[3/4] lg:aspect-[4/3] w-full block object-cover object-center"
+            src={img(image).build.width(1920).quality(100).url()}
+            alt=""
+          />
+        </div>
+      </div>
+    )
+  }
+</section>

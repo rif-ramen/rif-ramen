@@ -1,0 +1,76 @@
+---
+import "./../styles/global.css";
+import groq from "groq";
+import Header from "../components/Header.astro";
+import GridTester from "../components/GridTester.astro";
+import GridHelper from "../components/GridHelper.astro";
+
+const site = await Astro.locals.client.fetch(groq`*[_id == 'siteSettings'][0] {
+  title,
+  defaultImage { asset-> { url } },
+  description,
+  menu[] {
+    label,
+    isExternal,
+    url,
+    page-> { slug }
+  },
+  meta {
+    ogTitle,
+    ogDescription,
+    ogImage
+  },
+  contactEmail,
+  presskitUrl,
+  address,
+  directionsUrl,
+  linkedin,
+  companyInfo-> {
+    slug
+  },
+  privacyPolicy { asset-> { url } },
+}`);
+
+const { title, page } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Nordens Rådgivere" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <script src="./../scripts/main.js"></script>
+    <title>{title || site.title}</title>
+
+    <meta
+      property="og:title"
+      content={(page?.ogTitle || title || site.title) + " | MOL Switch"}
+    />
+    <meta
+      property="og:description"
+      content={page?.ogDescription || site.description}
+    />
+    <meta
+      property="og:image"
+      content={page?.ogImage?.asset?.url || site.defaultImage.asset.url}
+    />
+    <meta property="og:url" content={Astro.url} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body
+    data-controller="scroller page-transition viewport"
+    class="site-color-defaults"
+  >
+    <Header contactEmail={site.contactEmail} />
+    {import.meta.env.DEV && <GridTester />}
+    <main class="min-h-screen h-full" data-taxi>
+      <article data-taxi-view>
+        <slot />
+      </article>
+    </main>
+    <GridHelper />
+  </body>
+</html>
