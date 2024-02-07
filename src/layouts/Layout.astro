@@ -62,7 +62,7 @@ const { title, page } = Astro.props;
   </head>
   <body
     data-controller="scroller page-transition viewport"
-    class="site-color-defaults"
+    class="site-color-defaults animate-fade-in"
   >
     <Header contactEmail={site.contactEmail} />
     {import.meta.env.DEV && <GridTester />}
