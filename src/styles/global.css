@@ -30,8 +30,8 @@
     box-sizing: border-box;
   }
   :root {
-    --site-bg: black;
-    --site-text: white;
+    --site-bg: white;
+    --site-text: #424242;
   }
   ::selection {
     @apply bg-energy text-white;
