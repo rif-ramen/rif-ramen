@@ -163,6 +163,7 @@
     opacity: 0;
     animation-name: fade-in;
     animation-duration: 1s;
+    animation-fill-mode: forwards;
   }
 
   @keyframes fade-in {
