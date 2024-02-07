@@ -9,11 +9,11 @@ const { contactEmail } = Astro.props;
   data-action="scroll@window->header#updateHiddenStatus mobile-nav:toggle@window->header#toggleMobileIndicator"
 >
   <nav class="inner site-grid container">
-    <div class="col-span-2 font-medium">
+    <div class="link link--active">
       Index <span class="indicator"></span>
     </div>
-    <div class="col-span-2 font-medium opacity-50">Work</div>
-    <div class="col-span-2 font-medium opacity-50">Contact</div>
+    <div class="link">Work</div>
+    <div class="link">Contact</div>
     <div class="col-span-4"></div>
     <div class="logo type-body">
       <a aria-label="Link to homepage" href="/" class="logo-link"
@@ -39,7 +39,13 @@ const { contactEmail } = Astro.props;
       @apply h-8 block w-auto;
     }
   }
+  .link {
+    @apply col-span-2 font-medium opacity-50 cursor-default;
+    &--active {
+      @apply opacity-100;
+    }
+  }
   .indicator {
-    @apply w-[6px] h-[6px] bg-white rounded-full ml-3 inline-block mb-[2px];
+    @apply w-[6px] h-[6px] bg-current rounded-full ml-2 inline-block mb-[2px];
   }
 </style>
