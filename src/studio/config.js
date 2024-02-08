@@ -42,7 +42,7 @@ const config = defineConfig({
     media(),
   ],
   name: "default",
-  title: "MOL Switch",
+  title: "Rif Ramen",
   projectId: "71ufpkyl",
   dataset: "production",
   basePath: "/sanity",
