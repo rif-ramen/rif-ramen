@@ -34,7 +34,7 @@
     --site-text: #424242;
   }
   ::selection {
-    @apply bg-energy text-white;
+    @apply bg-red text-white;
   }
   html {
     @apply font-sans leading-[1.3] text-[16px] 3xl:text-[1vw] 4xl:text-[24px] overflow-x-hidden;
@@ -97,7 +97,7 @@
   }
 
   .line-link {
-    @apply inline-block relative hover:opacity-50 transition-all duration-500 ease-in-out tracking-normal text-energy;
+    @apply inline-block relative hover:opacity-50 transition-all duration-500 ease-in-out tracking-normal text-red;
   }
   .line-link:before {
     @apply content-[""] absolute -bottom-[0.075em] left-0 w-full h-[0.05em] bg-current scale-x-100 transition duration-300 ease-[var(--ease-smooth-out)] origin-right opacity-100;

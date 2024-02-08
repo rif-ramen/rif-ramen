@@ -14,7 +14,7 @@ const { title, image } = Astro.props;
   {
     image && (
       <div class="container">
-        <div class="bg-cloud aspect-[3/4] lg:aspect-[4/3]">
+        <div class="bg-red aspect-[3/4] lg:aspect-[4/3]">
           <img
             class="aspect-[3/4] lg:aspect-[4/3] w-full block object-cover object-center"
             src={img(image).build.width(1920).quality(100).url()}
