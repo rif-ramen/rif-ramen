@@ -4,6 +4,14 @@
 
 :root {
   --screen-h: 100vh;
+  --site-bg: white;
+  --site-text: #424242;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --site-bg: #292929;
+    --site-text: white;
+  }
 }
 
 @layer base {
@@ -55,11 +63,8 @@
     @apply bg-[--site-bg] text-[--site-text] transition-colors duration-500;
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --site-bg: #292929;
-      --site-text: white;
-    }
+  .site-bg {
+    @apply bg-[url("/images/bg_alt.png")] bg-cover bg-center dark:bg-opacity-100 bg-opacity-0;
   }
 }
 

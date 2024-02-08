@@ -61,11 +61,12 @@ const { title, page } = Astro.props;
     <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body
-    data-controller="scroller page-transition viewport"
     class="site-color-defaults animate-fade-in"
+    data-controller="scroller page-transition viewport"
   >
     <Header contactEmail={site.contactEmail} linkedin={site.linkedin} />
     {import.meta.env.DEV && <GridTester />}
+    <div class="site-bg fixed inset-0 dark:opacity-100 opacity-0 transition-opacity duration-500 -z-10 invert dark:invert-0"></div>
     <main class="min-h-screen flex flex-col" data-taxi>
       <article data-taxi-view class="min-h-screen">
         <slot />
