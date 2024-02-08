@@ -52,8 +52,14 @@
   }
 
   .site-color-defaults {
-    background: var(--site-bg);
-    color: var(--site-text);
+    @apply bg-[--site-bg] text-[--site-text] transition-colors duration-500;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --site-bg: #292929;
+      --site-text: white;
+    }
   }
 }
 
