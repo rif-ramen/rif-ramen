@@ -1,7 +1,7 @@
 ---
 import Logo from "./Logo.astro";
 
-const { contactEmail } = Astro.props;
+const { linkedin } = Astro.props;
 ---
 
 <header
@@ -9,12 +9,15 @@ const { contactEmail } = Astro.props;
   data-action="scroll@window->header#updateHiddenStatus mobile-nav:toggle@window->header#toggleMobileIndicator"
 >
   <nav class="inner site-grid container">
-    <div class="link link--active">
+    <div class="col-span-2 lg:col-span-8 xl:col-span-10 lg:-order-1 order-1">
+      <h3>Work of <a href={linkedin} target="_blank">Hakim Mazouz</a>, an interactive designer & fullstack developer.</h3>
+    </div>
+    <!-- <div class="link link--active">
       Index <span class="indicator"></span>
     </div>
     <div class="link">Work</div>
     <div class="link">Lab</div>
-    <div class="col-span-4"></div>
+    <div class="col-span-4"></div> -->
     <div class="logo type-body">
       <a aria-label="Link to homepage" href="/" class="logo-link"
         ><Logo class="w-full h-auto" /></a
@@ -34,7 +37,7 @@ const { contactEmail } = Astro.props;
     @apply  tracking-[-0.01em];
   }
   .logo {
-    @apply col-span-2;
+    @apply col-span-2 lg:col-span-4 xl:col-span-2;
     img {
       @apply h-8 block w-auto;
     }

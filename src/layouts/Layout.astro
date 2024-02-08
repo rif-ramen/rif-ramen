@@ -64,10 +64,10 @@ const { title, page } = Astro.props;
     data-controller="scroller page-transition viewport"
     class="site-color-defaults animate-fade-in"
   >
-    <Header contactEmail={site.contactEmail} />
+    <Header contactEmail={site.contactEmail} linkedin={site.linkedin} />
     {import.meta.env.DEV && <GridTester />}
-    <main class="min-h-screen h-full" data-taxi>
-      <article data-taxi-view>
+    <main class="min-h-screen flex flex-col" data-taxi>
+      <article data-taxi-view class="min-h-screen">
         <slot />
       </article>
     </main>
